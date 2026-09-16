@@ -137,6 +137,6 @@ checkoutForm.addEventListener("submit", function (event) {
 
 
     // الرجوع للمتجر
-    window.location.href = "1.html";
+    window.location.href = "index1.html";
 
 });
