@@ -1,0 +1,252 @@
+/* ==========================================================================
+   Medo Book Store - Modern Login Stylesheet
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --primary: #b43cae;
+  --primary-hover: #993188;
+  --primary-gradient: linear-gradient(135deg, #b43ca4 0%, #4f1a43 100%);
+  --primary-gradient-hover: linear-gradient(135deg, #c94ca6 0%, #652354 100%);
+  --primary-light: #fce3f7;
+  --dark-navy: #4f1a4c;
+  --text-primary: #3b1e3a;
+  --text-secondary: #8b6485;
+  --border-color: #f0e2f0;
+  --border-focus: #b43ca4;
+  --card-bg: rgba(255, 255, 255, 0.94);
+  --card-shadow: 0 20px 48px -10px rgba(180, 60, 154, 0.18), 0 8px 24px -6px rgba(79, 26, 73, 0.08);
+  --radius-lg: 22px;
+  --radius-md: 12px;
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', 'Segoe UI', Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 16px;
+  background-color: #f9f1f8;
+  background-image: 
+    radial-gradient(at 15% 15%, rgba(180, 60, 150, 0.18) 0px, transparent 50%),
+    radial-gradient(at 85% 85%, rgba(26, 42, 79, 0.15) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(241, 99, 208, 0.08) 0px, transparent 50%),
+    linear-gradient(135deg, #fae8f8 0%, #fcf8fc 50%, #fce3f8 100%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Container / Card styling */
+.login-card,
+.login-container {
+  width: 100%;
+  max-width: 440px;
+  background: var(--card-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: var(--card-shadow);
+  padding: 40px 36px;
+  animation: fadeInUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* If header is placed inside .login-card */
+.login-card .login-container {
+  max-width: 100%;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  backdrop-filter: none;
+  animation: none;
+}
+
+/* Header Section */
+.header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.header img {
+  width: 88px;
+  height: 88px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #ffffff;
+  box-shadow: 0 8px 24px rgba(180, 60, 158, 0.22);
+  margin-bottom: 16px;
+  transition: var(--transition);
+  background-color: var(--primary-light);
+}
+
+.header img:hover {
+  transform: scale(1.06) rotate(2deg);
+  box-shadow: 0 12px 28px rgba(180, 60, 174, 0.3);
+}
+
+.header h1 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, var(--dark-navy) 20%, var(--primary) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 6px;
+}
+
+.header h2 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.header p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+/* Form Elements */
+form {
+  width: 100%;
+}
+
+form > div {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--dark-navy);
+  margin-bottom: 7px;
+  letter-spacing: 0.2px;
+  transition: color 0.2s ease;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 100%;
+  padding: 13px 16px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  background-color: #fcf8fb;
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: var(--transition);
+}
+
+input[type="text"]::placeholder,
+input[type="password"]::placeholder,
+input[type="email"]::placeholder {
+  color: #b894b0;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+input[type="text"]:hover,
+input[type="password"]:hover,
+input[type="email"]:hover {
+  border-color: #e1cbdb;
+  background-color: #ffffff;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+  border-color: var(--border-focus);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(180, 60, 164, 0.15);
+}
+
+/* Focus label enhancement */
+form > div:focus-within label {
+  color: var(--primary);
+}
+
+/* Submit Button */
+button[type="submit"] {
+  width: 100%;
+  padding: 14px 24px;
+  margin-top: 6px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  background: var(--primary-gradient);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(180, 60, 176, 0.28);
+  transition: var(--transition);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button[type="submit"]:hover {
+  background: var(--primary-gradient-hover);
+  box-shadow: 0 12px 28px rgba(180, 60, 166, 0.38);
+  transform: translateY(-2px);
+}
+
+button[type="submit"]:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 14px rgba(180, 60, 156, 0.22);
+}
+
+/* Smooth Entrance Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  body {
+    padding: 20px 12px;
+  }
+
+  .login-card,
+  .login-container {
+    padding: 30px 20px;
+    border-radius: 18px;
+  }
+
+  .header h1 {
+    font-size: 1.5rem;
+  }
+
+  .header img {
+    width: 76px;
+    height: 76px;
+  }
+}
